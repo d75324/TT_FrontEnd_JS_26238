@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar2 {
+    background-color: beige;
+    display: flex;
+}
+
+.artilugio {
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 40vh;
+    /* border: 2px solid chartreuse; */
+    color: blue;
+}
+
+.artilugio h2 {
+    font-family: "Playwrite CA Guides", cursive;
+    color: blanchedalmond;
+    margin: 0 auto;
+}
+
+.boxing {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-direction: row; */
+    /* justify-content: center; */
+    /* align-items: flex-start; */
+    width: 800px;
+    height: 300px;
+    border: 2px dotted crimson;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 20px;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+}
