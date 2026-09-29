@@ -8,7 +8,6 @@
 }
 
 /* TIPOGRAFIA BASE */
-
 h1 {
     font-size: 50px;
     line-height: 64px;
@@ -49,11 +48,10 @@ body {
 }
 
 .section-m1 {
-    margin: 40px 0;
+    margin: 10px 0;
 }
 
 /* == header y navegación == */
-
 .header {
     display: flex;
     align-items: center;
@@ -70,6 +68,24 @@ body {
     height: 300px; */
 }
 
+/* ===== esta es la parte del código que maneja el navbar ===== */
+.navegacion {
+    display: flex;
+    align-items: center;
+    /*  ## esto funciona pero no es responsive ##
+        justify-content: flex-start; ## con 'space-between' me queda  logo a la izq, menú a la der ##
+        gap: 30px; ## separación entre logo y menú ##
+    */
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin: 0 auto 0 0; /* empuja todo el ul a la derecha */
+    padding: 0;
+}
+
 .navbar li{
     list-style: none; /* quitamos los odiosos puntitos que se generan automáticamente con <ul> */
     padding: 0 20px;
@@ -81,6 +97,9 @@ body {
     font-weight: 600;
     color: #1a1a1a;
 }
+/* ===== FIN del navbar ===== */
+
+
 
 /* == hero! sección principal == */
 .hero {
@@ -90,7 +109,7 @@ body {
     background-size: cover;
     background-position: top 5% center;
     /* margin: 10px; */
-    padding: 0 80;
+    padding: 0 80px;
     /* margin-top: 10px; */
     margin-bottom: 40px;
 }
@@ -108,14 +127,14 @@ body {
 
 .hero .hero-content h2 {
     color: #d706e6; 
-    font-size: 2,5rem;
+    font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
 .hero .hero-content p {
     color: #09d81d; 
     margin-bottom: 20px;
-    font-size: 2,5rem;
+    font-size: 2.5rem;
 }
 
 .hero .hero-content button {
@@ -134,10 +153,12 @@ body {
 	text-decoration:none;
 	text-shadow:0px 1px 0px #9b14b3;
 }
+
 .myButton:hover {
 	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
 	background-color:#a20dbd;
 }
+
 .myButton:active {
 	position:relative;
 	top:1px;
