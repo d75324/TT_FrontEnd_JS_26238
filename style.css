@@ -39,7 +39,7 @@ p {
 
 body {
     width: 100%;
-    height: 300vh;
+    /* height: 300vh; ### prueba ### */
 }
 
 /* espaciado, se reusa muchas veces: en las secciones donde necesito que tengan estos padding o margins, agrego estas secciones*/
@@ -54,10 +54,11 @@ body {
 /* == header y navegación == */
 .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    /* agregar 4 valores, me permite marcar cuanto espacio quiero por lado */
+    /* agregar 4 valores, me permite marcar cuanto espacio quiero por lado, ej padding  30px 10px 20px 40px; */
     /* funciona también para margin */
-    padding: 30px 10px 20px 40px;
+    padding: 20px 80px;
     background-color: #e3e606;
     /* === HEADER FIJO EN EL TOP DE LA PÁGINA ===*/
     z-index: 999;
@@ -81,9 +82,10 @@ body {
 
 .navbar {
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin: 0 auto 0 0; /* empuja todo el ul a la derecha */
-    padding: 0;
+    /* margin: 0 auto 0 0; ## empuja todo el ul a la derecha ##
+    padding: 0; */
 }
 
 .navbar li{
@@ -92,11 +94,29 @@ body {
 }
 
 .navbar a{
-    text-decoration: none;
+    text-decoration: none; /* el subrayado de los enlaces, afuera! */
     font-size: 1rem;
     font-weight: 600;
     color: #1a1a1a;
 }
+
+/*  ====== 
+pseudo-clase CSS - palabra clave - se añade a un selector - aplica estilos a un elemento solo cuando se encuentra en un estado específico o cumple una condición especial - usa dos puntos (:) seguidos del nombre de la pseudo-clase
+======= */
+
+.navbar a:hover{
+    color:#c123de;
+    font-size: 2rem;
+}
+
+/*  ====== botón hamburguesa, visible en desktop, oculto en mobile ====== */
+
+.mobile {
+    display: none;
+    align-items: center;
+}
+
+
 /* ===== FIN del navbar ===== */
 
 
