@@ -2,27 +2,26 @@
 
 * {
     margin: 0;
-	padding: 0;
-	box-sizing: border-box; /* para que margin y padding no le sumen dimensión al elemento */
+    padding: 0;
+    box-sizing: border-box; /* para que margin y padding no le sumen dimensión al elemento */
     font-family: "Roboto", sans-serif;
 }
 
 /* TIPOGRAFIA BASE */
 h1 {
-    font-size: 50px;
-    line-height: 64px;
+    font-size: 32px;
+    line-height: 40px;
     color: #222;
 }
 
 h2 {
-    font-size: 46px;
-    line-height: 64px;
+    font-size: 28px;
+    line-height: 36px;
     color: #222;
-    /* color: red; */
 }
 
 h4 {
-    font-size: 20px;
+    font-size: 18px;
     color: #222;
 }
 
@@ -32,51 +31,40 @@ h6 {
 }
 
 p {
-    font-size: 16px;
+    font-size: 15px;
     color: black;
-    margin: 15px 0 20px 0;
+    margin: 10px 0 15px 0;
 }
 
 body {
     width: 100%;
-    /* height: 300vh; ### prueba ### */
 }
 
-/* espaciado, se reusa muchas veces: en las secciones donde necesito que tengan estos padding o margins, agrego estas secciones*/
+/* Espaciados reutilizables */
 .section-p1 {
-    padding: 40px 80px;
+    padding: 30px 40px;
 }
 
 .section-m1 {
     margin: 10px 0;
 }
 
-/* == header y navegación == */
+/* == Header y Navegación == */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* agregar 4 valores, me permite marcar cuanto espacio quiero por lado, ej padding  30px 10px 20px 40px; */
-    /* funciona también para margin */
     padding: 20px 80px;
     background-color: #e3e606;
-    /* === HEADER FIJO EN EL TOP DE LA PÁGINA ===*/
     z-index: 999;
     position: sticky;
     top: 0px;
     left: 0px;
-    /* width: 300px;
-    height: 300px; */
 }
 
-/* ===== esta es la parte del código que maneja el navbar ===== */
 .navegacion {
     display: flex;
     align-items: center;
-    /*  ## esto funciona pero no es responsive ##
-        justify-content: flex-start; ## con 'space-between' me queda  logo a la izq, menú a la der ##
-        gap: 30px; ## separación entre logo y menú ##
-    */
     width: 100%;
 }
 
@@ -84,58 +72,105 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin: 0 auto 0 0; ## empuja todo el ul a la derecha ##
-    padding: 0; */
 }
 
-.navbar li{
-    list-style: none; /* quitamos los odiosos puntitos que se generan automáticamente con <ul> */
+.navbar li {
+    list-style: none;
     padding: 0 20px;
 }
 
-.navbar a{
-    text-decoration: none; /* el subrayado de los enlaces, afuera! */
+.navbar a {
+    text-decoration: none;
     font-size: 1rem;
     font-weight: 600;
     color: #1a1a1a;
+    transition: color 0.3s ease;
 }
 
-/*  ====== 
-pseudo-clase CSS - palabra clave - se añade a un selector - aplica estilos a un elemento solo cuando se encuentra en un estado específico o cumple una condición especial - usa dos puntos (:) seguidos del nombre de la pseudo-clase
-======= */
-
-.navbar a:hover{
-    color:#c123de;
-    font-size: 2rem;
+/* Se mantiene el tamaño y solo se cambia el color para evitar distorsiones */
+.navbar a:hover {
+    color: #c123de;
 }
 
-/*  ====== botón hamburguesa, visible en desktop, oculto en mobile ====== */
-
+/* Botones para mobile (ocultos en escritorio) */
 .mobile {
     display: none;
     align-items: center;
 }
 
+.close {
+    display: none;
+}
 
+/* ============ Responsive: Pantallas pequeñas (< 800px) ============ */
+@media(max-width: 799px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #e7e476;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+        transition: 0.3s;
+    }
+
+    .navbar li {
+        margin-bottom: 25px;
+    }
+
+    .mobile {
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile i {
+        color: #222;
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    /* Clase que se activa con JS para desplegar el menú */
+    .active {
+        right: 0px;
+    }
+
+    .close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 24px; /*  */
+    }
+}
 /* ===== FIN del navbar ===== */
 
-
-
-/* == hero! sección principal == */
+/* == Hero: Sección principal == */
 .hero {
     background-image: url(img/nvgo.jpg);
-    height: 55vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* justify-content y align-items para trabajar con los 2 ejes */
+    height: 55vh; /* con 95 la fuente queda gigante */
     width: 100%;
     background-size: cover;
     background-position: top 5% center;
-    /* margin: 10px; */
     padding: 0 80px;
-    /* margin-top: 10px; */
     margin-bottom: 40px;
 }
 
 .hero .hero-content {
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
     z-index: 1;
 }
 
@@ -151,35 +186,147 @@ pseudo-clase CSS - palabra clave - se añade a un selector - aplica estilos a un
     margin-bottom: 10px;
 }
 
+.hero .hero-content h1 {
+    color: #d706e6; 
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
 .hero .hero-content p {
     color: #09d81d; 
     margin-bottom: 20px;
-    font-size: 2.5rem;
+    font-size: 1rem; /* 1rem */
 }
 
+/* ========= botón desde mybuttongenerator ========= */
 .hero .hero-content button {
-	box-shadow:inset -1px -3px 0px 0px #e184f3;
-	background:linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
-	background-color:#c123de;
-	border-radius:8px;
-	border:1px solid #a511c0;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:10px 42px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #9b14b3;
+    box-shadow: inset -1px -3px 0px 0px #e184f3;
+    background: linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
+    background-color: #c123de;
+    border-radius: 8px;
+    border: 1px solid #a511c0;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 42px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #9b14b3;
 }
 
+/* $$$$$$$$$$$ EL HOVER NO ESTA FUNCIONANDO $$$$$$$$$$$ */
 .myButton:hover {
-	background:linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
-	background-color:#a20dbd;
+    background: linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
+    background-color: #d73ef2;
 }
 
 .myButton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
+/* ========= FIN DEl,    BUTTON FROM mybuttongenerator ========= */
+
+/* ============ RESPONSIVE HERO ============ */
+@media (max-width: 1200px) {
+    .hero{
+        padding: 0 60px;
+    }
+    .hero .hero.content{
+        width: 55%;
+    }
+}
+
+
+@media (max-width: 992px) {
+    .hero {
+        height: 85vh;
+        padding: 0 60px;
+    }
+
+    .hero .hero-content {
+        width: 60%;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* &&&&&&&&&&&&& HECHO EN CLASE &&&&&&&&&&&&& */
+@media (max-width: 768px) {
+    .hero {
+        height: 70vh;
+        padding: 0 40px;
+        justify-content: center;
+        background-position: top center;
+    }
+
+    .hero .hero-content{
+        width: 80%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero .hero-content h4 {
+        font-size: 0.9rem;
+    }
+
+    .hero .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* &&&&&&&&&&&&& HECHO EN CLASE &&&&&&&&&&&&& */
+@media (max-width: 576px) {
+
+    .hero{
+        height: 60vh;
+        padding: 0 20px;
+        background-position: 55% center;
+    }
+
+    .hero .hero-content {
+        width: 100%;
+    }
+
+    .hero .hero-content h4 {
+        font-size: 0.8rem;
+    }
+
+    .hero .hero-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero .hero-content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .hero .hero-content p {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+
+    .hero .hero-content button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+}
+
+
+
