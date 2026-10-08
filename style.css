@@ -9,19 +9,19 @@
 
 /* TIPOGRAFIA BASE */
 h1 {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 52px;
+    line-height: 65px;
     color: #222;
 }
 
 h2 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 46px;
+    line-height: 54px;
     color: #222;
 }
 
 h4 {
-    font-size: 18px;
+    font-size: 22px;
     color: #222;
 }
 
@@ -33,7 +33,7 @@ h6 {
 p {
     font-size: 15px;
     color: black;
-    margin: 10px 0 15px 0;
+    margin: 15px 0 22px 0;
 }
 
 body {
@@ -42,11 +42,11 @@ body {
 
 /* Espaciados reutilizables */
 .section-p1 {
-    padding: 30px 40px;
+    padding: 35px 75px;
 }
 
 .section-m1 {
-    margin: 10px 0;
+    margin: 40px 0;
 }
 
 /* == Header y Navegación == */
@@ -55,18 +55,22 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 80px;
-    background-color: #e3e606;
+    background-color: #E3E6f3; /* #e3e606 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    /* fijo el header */
     z-index: 999;
     position: sticky;
     top: 0px;
     left: 0px;
 }
 
+/* ==== prueba ==== */
 .navegacion {
     display: flex;
     align-items: center;
     width: 100%;
 }
+/* ==== fin prueba ==== */
 
 .navbar {
     display: flex;
@@ -84,7 +88,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     color: #1a1a1a;
-    transition: color 0.3s ease;
+    /* transition: color 0.3s ease; */
 }
 
 /* Se mantiene el tamaño y solo se cambia el color para evitar distorsiones */
@@ -135,7 +139,7 @@ body {
         padding-left: 20px;
     }
 
-    /* Clase que se activa con JS para desplegar el menú */
+    /* Clase que vamos a usar con JS para desplegar el menú */
     .active {
         right: 0px;
     }
@@ -153,20 +157,23 @@ body {
 
 /* == Hero: Sección principal == */
 .hero {
+    /* background-image: url(img/otrafoto.jpg); */
     background-image: url(img/nvgo.jpg);
+    /* background-image: url(img/nvgo33.jpg); */
     display: flex;
     justify-content: flex-end;
     align-items: center; /* justify-content y align-items para trabajar con los 2 ejes */
     height: 55vh; /* con 95 la fuente queda gigante */
+    /* min-height: 360px; */
     width: 100%;
     background-size: cover;
     background-position: top 5% center;
-    padding: 0 80px;
+    padding: 0 80px; /* 80px en clase*/
     margin-bottom: 40px;
 }
 
 .hero .hero-content {
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -176,18 +183,25 @@ body {
 
 .hero .hero-content h4 {
     color: aqua;
-    margin-bottom: 10px;
+    margin-bottom: 6px; /* 10px */
     font-size: 1rem;
 }
 
 .hero .hero-content h2 {
-    color: #d706e6; 
+    color: #2d24a9;
+    /* color: #d706e6;  #222 en clase */
+    /* ==== OPCION ====
+    font-size: 2rem;
+    margin-bottom: 4px; */
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
 
 .hero .hero-content h1 {
-    color: #d706e6; 
+    color: #d706e6;
+    /* ==== OPCION ====
+    font-size: 2rem;
+    margin-bottom: 6px; */
     font-size: 2.5rem;
     margin-bottom: 10px;
 }
@@ -195,7 +209,7 @@ body {
 .hero .hero-content p {
     color: #09d81d; 
     margin-bottom: 20px;
-    font-size: 1rem; /* 1rem */
+    /* font-size: 1rem; */
 }
 
 /* ========= botón desde mybuttongenerator ========= */
@@ -216,17 +230,17 @@ body {
     text-shadow: 0px 1px 0px #9b14b3;
 }
 
-/* $$$$$$$$$$$ EL HOVER NO ESTA FUNCIONANDO $$$$$$$$$$$ */
-.myButton:hover {
+/* $$ ATENTO NO FUNCA $$ */
+.hero .hero-content button:hover {
     background: linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
     background-color: #d73ef2;
 }
 
-.myButton:active {
+.hero .hero-content button:active {
     position: relative;
     top: 1px;
 }
-/* ========= FIN DEl,    BUTTON FROM mybuttongenerator ========= */
+/* ========= FIN del, BUTTON FROM mybuttongenerator ========= */
 
 /* ============ RESPONSIVE HERO ============ */
 @media (max-width: 1200px) {
@@ -262,7 +276,7 @@ body {
     }
 }
 
-/* &&&&&&&&&&&&& HECHO EN CLASE &&&&&&&&&&&&& */
+/* && HECHO EN CLASE && */
 @media (max-width: 768px) {
     .hero {
         height: 70vh;
@@ -290,7 +304,6 @@ body {
     }
 }
 
-/* &&&&&&&&&&&&& HECHO EN CLASE &&&&&&&&&&&&& */
 @media (max-width: 576px) {
 
     .hero{
@@ -330,3 +343,70 @@ body {
 
 
 
+/* ============= FORMULARIO CONTACTO ============= */
+.sectionform {
+    padding: 20px 40px; /* espacio alrededor */
+    display: flex;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    /* gap: 16px; */
+    width: 100%;
+    max-width: 780px; /* MAS LARGO */
+    padding: 24px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: Arial, sans-serif;
+}
+
+/* ============= El FORMULARIO de la página de Contacto ============= */
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* separo un poco entre cada campo */
+}
+
+.formulario form div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* acá solo separo entre label e input */
+}
+/* ============= FIN ============= */
+
+
+/* ============= BANNER PRUEBA ============= */
+.banner-prueba{
+    background-color: #ebe4eb;
+    border: 1px solid #ff00ff; /* borde */
+    border-radius: 15px;
+    margin: 16px;
+    padding: 16px;
+    text-align: center;
+}
+/* ============= FIN BANNER PRUEBA ============= */
+
+
+/* ============ PRUEBAS FOOTER ============ */
+footer {
+  background-color: #f0f0f0; /* fondo gris */
+  margin: 0 16px;
+  padding: 8px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 8px 0; /* margen */
+}
+
+footer hr {
+  border:none;
+  border-top: 1px solid #710b0b; /* líneas */
+  margin: 4px 0;
+}
+/* ============ FIN PRUEBAS FOOTER ============ */
