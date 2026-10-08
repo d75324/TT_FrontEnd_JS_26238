@@ -15,58 +15,51 @@
 
 <body>
     <header class="header">
-        <nav>
-            <a href="../index.html">
-                <img src="../img/logo1.png" alt="Logo de la tienda">
-            </a>
-            <ul>
-                <li>
-                    <a href="">Home</a>
-                </li>
-                <li>
-                    <a href="">Tienda</a>
-                </li>
-                <li>
-                    <a href="">Blog</a>
-                </li>
-                <li>
-                    <a href="https://www.google.com">Acerca de</a>
-                </li>
-                <li>
-                    <a href="">Carrito</a>
-                </li>
+        <a href="../index.html">
+            <img src="../img/logo1.png" alt="Logo de la tienda">
+        </a>
+        <div>
+            <ul class="navbar" id="navbar">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
+    <!-- FORMULARIO DE CONTACTO -->
     <main>
-        <section>
-            <form action="" method="post">
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                </div>
+        <section class="sectionform">
+            <div class="formulario">
+                <h2>Contacto</h2>
+                <form action="" method="post">
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Como te llamás?" required>
+                    </div>
 
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Tu email" required>
-                </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Un correo donde podamos responderte" required>
+                    </div>
 
-                <div>
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" placeholder="Tu mensaje" required></textarea>
-                </div>
+                    <div>
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" placeholder="Te escuchamos!" required></textarea>
+                    </div>
 
-                <button type="submit">Enviar</button>
-            </form>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </section>
     </main>
+    <!-- FORMULARIO DE CONTACTO -->
 
     <footer>
-
+        <a href="../index.html">Volver al inicio</a>
     </footer>
-
-    <a href="../index.html">Volver</a>
 
 </body>
 
