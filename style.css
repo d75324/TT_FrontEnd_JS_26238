@@ -385,7 +385,7 @@ body {
     background-color: #ebe4eb;
     border: 1px solid #ff00ff; /* borde */
     border-radius: 15px;
-    margin: 16px;
+    margin: 50px;
     padding: 16px;
     text-align: center;
 }
@@ -395,8 +395,8 @@ body {
 /* ============ PRUEBAS FOOTER ============ */
 footer {
   background-color: #f0f0f0; /* fondo gris */
-  margin: 0 16px;
-  padding: 8px 0;
+  margin: 30px;
+  padding: 50px;
   text-align: center;
 }
 
@@ -410,3 +410,21 @@ footer hr {
   margin: 4px 0;
 }
 /* ============ FIN PRUEBAS FOOTER ============ */
+
+.mateamargo {
+    /* display: grid; */
+    padding-top: 2rem;
+    /* grid-template-columns: 300px 300px 300px 300px; */
+    border: 2px dotted black;
+    padding: 30px;
+    margin: 10px;
+}
+
+.grilla {
+    padding: 15px;
+    margin: 13px;
+    display: grid;
+    grid-template-columns: repeat(4, 40px);
+    /* gap: 14px; */
+    /* border: 1px solid red; */
+}
