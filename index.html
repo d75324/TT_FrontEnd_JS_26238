@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -76,24 +77,6 @@
          </section>
         <!-- =========== FIN SUSCRIPCIÓN AL NEWSLETTER =========== -->
 
-
-        <!-- =========== MAPA =========== -->
-         <section class="mateamargo">
-            <h2>Escuchado Recientemente</h2>
-            <div class="grilla">
-                <div class"album">Lorem ipsum! </div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-                <div class"album">message</div>
-            </div>
-        </section>
-        <!-- =========== fin MAPA =========== -->
-        
-        
         <!-- =========== BANNER =========== -->
         <section class="banner-prueba">
             <h4>proximamente...</h4>
@@ -101,8 +84,38 @@
         </section>
         <!-- =========== fin BANNER =========== -->
 
-        <!-- =========== MAPA =========== -->
-        <section><hr>
+
+
+        <!-- =========== CATALOGO DE PRODUCTOS =========== -->
+        <section class="mateamargo">
+            <h1 id="titulo">Catálogo de productos</h1>
+            <p class="subtitulo">Productos disponibles</p>
+            <input type="text" id="buscador" placeholder="Buscar producto">
+            <br><br>
+            <div id="contenedor-productos"></div>
+            <br>
+            <button id="cambiar-modo">Cambiar Modo</button>
+        </section>
+        <!-- =========== fin CATALOGO DE PRODUCTOS =========== -->
+
+        <!-- ====================== FORMULARIO js ====================== -->
+        <section class="mateamargo">
+            <div>
+                <form action="" id="formulario">
+                    <label for="nombre"> Nombre: </label>
+                    <input type="text" id="nombre" name="nombre">
+                    <label for="email"> Email: </label>
+                    <input type="email" id="email" name="email">
+                    <button type="submit"> Enviar </button>
+                </form>
+            </div>
+        </section>
+        <!-- ====================== FIN FORMULARIO js ====================== -->
+
+
+
+        <!-- ====================== MAPA ====================== -->
+        <section class="mateamargo">
             <div class="boxing">
                 <div>
                     <p>
@@ -119,13 +132,12 @@
     </main>
     
     <!-- =========== FOOTER =========== -->
-    <footer>
+    <footer class="mateamargo">
         <hr>
         <P>FOOTER</P>
         <hr>
     </footer><br><br>
     <!-- =========== FIN FOOTER =========== -->
-    <script src="script.js"></script>
 </body>
 
 </html>

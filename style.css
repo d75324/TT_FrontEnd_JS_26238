@@ -7,11 +7,20 @@
     font-family: "Roboto", sans-serif;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #1b2733;
+  margin: 0;
+  padding: 24px;
+}
+
 /* TIPOGRAFIA BASE */
 h1 {
     font-size: 52px;
     line-height: 65px;
     color: #222;
+    margin: 0 0 4px;
 }
 
 h2 {
@@ -34,10 +43,6 @@ p {
     font-size: 15px;
     color: black;
     margin: 15px 0 22px 0;
-}
-
-body {
-    width: 100%;
 }
 
 /* Espaciados reutilizables */
@@ -411,6 +416,10 @@ footer hr {
 }
 /* ============ FIN PRUEBAS FOOTER ============ */
 
+
+
+
+/* ============ PROVISORIO PARA CATÁLOGO ============ */
 .mateamargo {
     /* display: grid; */
     padding-top: 2rem;
@@ -427,4 +436,91 @@ footer hr {
     grid-template-columns: repeat(4, 40px);
     /* gap: 14px; */
     /* border: 1px solid red; */
+}
+/* ============ FIN PROVISORIO PARA CATÁLOGO ============ */
+
+
+
+
+/* ============ CATALOGO ============ */
+
+.subtitulo {
+  color: #566878;
+  margin: 0 0 24px;
+}
+
+#contenedor-productos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.card {
+  width: 210px;
+  background: #ffffff;
+  border: 1px solid #cfd8df;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 4px 0;
+}
+
+.categoria {
+  color: #566878;
+  font-size: 13px;
+}
+/* ============ FIN CATALOGO ============ */
+
+
+.destacada{
+	color: #ff0000;
+	font-weight: bold;
+    background-color: lightblue;
+    border: 2px solid #0000ff;
+}
+
+/* -------------- BODY OSCURO -------------- */
+/* ========== DESACTIVADO ========== */
+
+body.oscuro {
+  background: #121a22;
+  color: #e6edf3;
+}
+
+body.oscuro .card {
+  background: #1c2833;
+  border-color: #2f3f4d;
+}
+
+body.oscuro .subtitulo,
+body.oscuro .categoria {
+  color: #9fb0bf;
+}
+
+body.oscuro .card.destacada {
+  border-color: #5cc6e4;
+  box-shadow: 0 0 0 1px #5cc6e4;
+}
+
+/* ============= BOTON BUSCADOR =============  */
+#buscador {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* ============= BOTON CAMBIAR MODO =============  */
+#cambiar-modo {
+  padding: 10px 20px;
+  /* background-color: #007bff; */
+  /* color: #fff; */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
 }
