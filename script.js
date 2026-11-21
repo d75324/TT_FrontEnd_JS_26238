@@ -11,60 +11,98 @@ console.log(subtitulo.textContent);
 console.log(textos.length);
 
 // tituloPagina2.textContent = "Bienvenido a mi Catálogo";
-// 'p' es el tipo de elemento que voy a crear, podría ser 'h5' u otros.
+// 'p' es el tipo de elemento que voy a crear, podría ser 'h5' u otros //
 // const parrafo = document.createElement('p');
 // parrafo.innerHTML = "<strong>barbaridad...</strong>";
 // contenedor.appendChild(parrafo);
 
-const catalogo = [
-  { titulo: "Teclado mecánico", precio: 45000, categoria: "periféricos", descripcion: "Switches rojos" },
-  { titulo: "Mouse inalámbrico", precio: 18000, categoria: "periféricos", descripcion: "Sensor de 1600 DPI" },
-  { titulo: "Monitor 24 pulgadas", precio: 220000, categoria: "pantallas", descripcion: "Panel IPS Full HD" },
-  { titulo: "Webcam HD", precio: 32000, categoria: "periféricos", descripcion: "Resolución 1080p" },
-  { titulo: "Notebook 15 pulgadas", precio: 850000, categoria: "computadoras", descripcion: "16 GB de RAM y SSD de 512 GB" },
-  { titulo: "Pad mouse", precio: 6000, categoria: "accesorios", descripcion: "Superficie de tela" },
-];
+// const catalogo = [];
+
+// const catalogo = [
+//   { titulo: "Teclado mecánico", precio: 45000, categoria: "periféricos", descripcion: "Switches rojos" },
+//   { titulo: "Mouse inalámbrico", precio: 18000, categoria: "periféricos", descripcion: "Sensor de 1600 DPI" },
+//   { titulo: "Monitor 24 pulgadas", precio: 220000, categoria: "pantallas", descripcion: "Panel IPS Full HD" },
+//   { titulo: "Webcam HD", precio: 32000, categoria: "periféricos", descripcion: "Resolución 1080p" },
+//   { titulo: "Notebook 15 pulgadas", precio: 850000, categoria: "computadoras", descripcion: "16 GB de RAM y SSD de 512 GB" },
+//   { titulo: "Pad mouse", precio: 6000, categoria: "accesorios", descripcion: "Superficie de tela" },
+// ];
 
 // ----------- FUNCION PARA CREAR CARD ---------------- //
+// fakestoreapi devuelve
+// {
+//   "title": "string",
+//   "price": 109.95,
+//   "description": "string",
+//   "category": "string",
+//   "image": "ups!"
+// }
 
-function crearCard(producto){
-      const card = document.createElement("div");
-  card.className = "card";
+// function crearCard(producto){
+//       const card = document.createElement("div");
+//   card.className = "card";
 
-  const nombre = document.createElement("h3");
-  nombre.textContent = producto.titulo;
+//   const nombre = document.createElement("h3");
+//   nombre.textContent = producto.title;
 
-  const categoria = document.createElement("p");
-  categoria.className = "categoria";
-  categoria.textContent = producto.categoria;
+//   const categoria = document.createElement("p");
+//   categoria.className = "categoria";
+//   categoria.textContent = producto.category;
 
-  const precio = document.createElement("p");
-  precio.textContent = "$" + producto.precio;
+//   const precio = document.createElement("p");
+//   precio.textContent = "$" + producto.price;
 
-  const descripcion = document.createElement("p");
-  descripcion.textContent = producto.descripcion;
+//   const descripcion = document.createElement("p");
+//   descripcion.textContent = producto.description;
 
-  const boton = document.createElement("button");
-  boton.textContent = "Agregar";
+//   const boton = document.createElement("button");
+//   boton.textContent = "Agregar";
 
-  boton.addEventListener("click", () => {
-  console.log("Agregado: " + producto.titulo);
-  });
+//   boton.addEventListener("click", () => {
+//   console.log("Agregado: " + producto.titulo);
+//   });
 
-  card.appendChild(nombre);
-  card.appendChild(categoria);
-  card.appendChild(precio);
-  card.appendChild(descripcion);
-  card.appendChild(boton);
+//   card.appendChild(nombre);
+//   card.appendChild(categoria);
+//   card.appendChild(precio);
+//   card.appendChild(descripcion);
+//   card.appendChild(boton);
 
-  return card;
-}
+//   return card;
+// }
 
 // ----------- MOSTRAR TODAS LAS CARD ---------------- //
-catalogo.forEach(producto => {
-  const card = crearCard(producto);
-  contenedor.appendChild(card);
-});
+// catalogo.forEach(producto => {
+//   const card = crearCard(producto);
+//   contenedor.appendChild(card);
+// });
+
+// ----------- fetch ---------------- //
+// fetch lace la petición a la API y devuelve un archivo de texto.
+// fetch('https://fakestoreapi.com/products')
+//     // convierte a JSON los datos recibidos desde la API
+//     .then(response => response.json())
+
+//     .then(data => data.forEach(producto => {
+//         const card = crearCard(producto);
+//         contenedor.appendChild(card);
+// }));
+
+// const contenedor = document.getElementById('productos-container');
+
+fetch('https://fakestoreapi.com/products')
+  .then(response => response.json())
+  .then(productos => {
+    contenedor.innerHTML = productos.map(producto => `
+      <article class="card">
+        <img src="${producto.image}" width="200" alt="${producto.title}">
+        <h3>${producto.title}</h3>
+        <p>$${producto.price}</p>
+      </article>
+    `).join('');
+  });
+
+
+// .catch(error => console.error('Error al obtener datos:', error));
 
 // ----------- PRIMERA RESALTADA ---------------- //
 // Uso querySelector que devuelve la primera opción con esa clase.
@@ -103,7 +141,7 @@ botonCambiarModo.addEventListener("click", () => {
 
 // ----------- F O R M U L A R I O ---------------- //
 const formulario = document.getElementById("formulario");
-formulario.addEventListener("submit", (aca_puedo_poner_cualquier_cosa) => {
+formulario.addEventListener("submit", (event) => {
 	event.preventDefault();
 	const nombre = document.getElementById("nombre").value;
 	const email = document.getElementById("email").value;
@@ -125,7 +163,7 @@ buscador.addEventListener("input", () => {
     const texto = buscador.value.toLowerCase();
 
     const filtrados = catalogo.filter(producto => {
-        return producto.titulo.toLowerCase().includes(texto);
+        return producto.title.toLowerCase().includes(texto);
     });
 
     dibujar(filtrados);
