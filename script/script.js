@@ -16,7 +16,7 @@ console.log(textos.length);
 // parrafo.innerHTML = "<strong>barbaridad...</strong>";
 // contenedor.appendChild(parrafo);
 
-const catalogo = [];
+// const catalogo = [];
 
 // const catalogo = [
 //   { titulo: "Teclado mecánico", precio: 45000, categoria: "periféricos", descripcion: "Switches rojos" },
