@@ -348,26 +348,88 @@ p {
 
 
 
-/* ============= FORMULARIO CONTACTO ============= */
+/* === FORMULARIO de CONTACTO lindo === */
 .sectionform {
-    padding: 20px 40px; /* espacio alrededor */
+    padding: 60px 40px;
     display: flex;
     justify-content: center;
-    background-color: #f9f9f9;
+    /* fondo degradado suave: verde agua → gris → rosado */
+    background: linear-gradient(135deg, #e3f6f5 0%, #f9f9f9 50%, #fde8e8 100%);
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
-    /* gap: 16px; */
     width: 100%;
-    max-width: 780px; /* MAS LARGO */
-    padding: 24px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    max-width: 780px;
+    padding: 32px;
+    border: none;
+    border-top: 5px solid #088178;   /* línea fina de color arriba */
+    border-radius: 12px;
     background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: Arial, sans-serif;
+    box-shadow: 0 10px 30px rgba(8, 129, 120, 0.15);
+    font-family: "Open Sans", sans-serif;
+}
+
+/* el título "formspree" como etiqueta */
+.formulario legend {
+    padding: 6px 16px;
+    background-color: #088178;
+    color: #fff;
+    border-radius: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* campos más grandes */
+.formulario input,
+.formulario textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    font-size: 16px;
+    font-family: inherit;
+    border: 2px solid #cce7d0;
+    border-radius: 8px;
+    background-color: #f7fcfb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+/* resaltado al hacer click en un campo */
+.formulario input:focus,
+.formulario textarea:focus {
+    outline: none;
+    border-color: #088178;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(8, 129, 120, 0.15);
+}
+
+.formulario button {
+    align-self: flex-start;
+    padding: 14px 36px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: #088178;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.formulario button:hover {
+    background-color: #066a63;
+}
+
+.formulario button:active {
+    transform: scale(0.97);
 }
 
 /* ============= El FORMULARIO de la página de Contacto ============= */

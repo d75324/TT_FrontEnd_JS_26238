@@ -16,7 +16,7 @@ console.log(textos.length);
 // parrafo.innerHTML = "<strong>barbaridad...</strong>";
 // contenedor.appendChild(parrafo);
 
-// const catalogo = [];
+const catalogo = [];
 
 // const catalogo = [
 //   { titulo: "Teclado mecánico", precio: 45000, categoria: "periféricos", descripcion: "Switches rojos" },
@@ -37,38 +37,38 @@ console.log(textos.length);
 //   "image": "ups!"
 // }
 
-// function crearCard(producto){
-//       const card = document.createElement("div");
-//   card.className = "card";
+function crearCard(producto){
+      const card = document.createElement("div");
+  card.className = "card";
 
-//   const nombre = document.createElement("h3");
-//   nombre.textContent = producto.title;
+  const nombre = document.createElement("h3");
+  nombre.textContent = producto.title;
 
-//   const categoria = document.createElement("p");
-//   categoria.className = "categoria";
-//   categoria.textContent = producto.category;
+  const categoria = document.createElement("p");
+  categoria.className = "categoria";
+  categoria.textContent = producto.category;
 
-//   const precio = document.createElement("p");
-//   precio.textContent = "$" + producto.price;
+  const precio = document.createElement("p");
+  precio.textContent = "$" + producto.price;
 
-//   const descripcion = document.createElement("p");
-//   descripcion.textContent = producto.description;
+  const descripcion = document.createElement("p");
+  descripcion.textContent = producto.description;
 
-//   const boton = document.createElement("button");
-//   boton.textContent = "Agregar";
+  const boton = document.createElement("button");
+  boton.textContent = "Agregar";
 
-//   boton.addEventListener("click", () => {
-//   console.log("Agregado: " + producto.titulo);
-//   });
+  boton.addEventListener("click", () => {
+  console.log("Agregado: " + producto.titulo);
+  });
 
-//   card.appendChild(nombre);
-//   card.appendChild(categoria);
-//   card.appendChild(precio);
-//   card.appendChild(descripcion);
-//   card.appendChild(boton);
+  card.appendChild(nombre);
+  card.appendChild(categoria);
+  card.appendChild(precio);
+  card.appendChild(descripcion);
+  card.appendChild(boton);
 
-//   return card;
-// }
+  return card;
+}
 
 // ----------- MOSTRAR TODAS LAS CARD ---------------- //
 // catalogo.forEach(producto => {
@@ -88,37 +88,23 @@ console.log(textos.length);
 // }));
 
 // const contenedor = document.getElementById('productos-container');
-
-fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then(productos => {
-    contenedor.innerHTML = productos.map(producto => `
-      <article class="card">
-        <img src="${producto.image}" width="200" alt="${producto.title}">
-        <h3>${producto.title}</h3>
-        <p>$${producto.price}</p>
-      </article>
-    `).join('');
-  });
-
-
 // .catch(error => console.error('Error al obtener datos:', error));
 
 // ----------- PRIMERA RESALTADA ---------------- //
 // Uso querySelector que devuelve la primera opción con esa clase.
-const primera = document.querySelector(".card");
+// const primera = document.querySelector(".card");
 
 // primera.style.backgroundColor = "lightblue";
 // primera.style.border = "2px solid blue";
 // primera.classList.add("destacada");
 
-let contador = 0;
-while (contador < 10) {
-    	setTimeout(() => {
-		primera.classList.toggle("destacada");
-	}, contador * 1000);
-	contador++;
-}
+// let contador = 0;
+// while (contador < 10) {
+//     	setTimeout(() => {
+// 		primera.classList.toggle("destacada");
+// 	}, contador * 1000);
+// 	contador++;
+// }
 
 // ----------- MODO OSCURO DESACTIVADO ---------------- //
 let modoOscuro = true;
@@ -152,12 +138,28 @@ formulario.addEventListener("submit", (event) => {
 // ----------- BUSCAR PRODUCTO ---------------- //
 const buscador = document.getElementById("buscador");
 
-function dibujar(lista) {
-    contenedor.innerHTML = "";
-    lista.forEach(producto => {
-        contenedor.appendChild(crearCard(producto));
-    });
+let catalogo = [];
+
+function crearCardHTML(producto) {
+  return `
+    <article class="card">
+      <img src="${producto.image}" width="200" alt="${producto.title}">
+      <h3>${producto.title}</h3>
+      <p>$${producto.price}</p>
+    </article>
+  `;
 }
+
+function dibujar(lista) {
+  contenedor.innerHTML = lista.map(crearCardHTML).join('');
+}
+
+fetch('https://fakestoreapi.com/products')
+  .then(response => response.json())
+  .then(productos => {
+    catalogo = productos;   // guardamos los productos para el buscador
+    dibujar(catalogo);
+  });
 
 buscador.addEventListener("input", () => {
     const texto = buscador.value.toLowerCase();
@@ -169,5 +171,5 @@ buscador.addEventListener("input", () => {
     dibujar(filtrados);
 });
 
-dibujar(catalogo);
+// dibujar(catalogo);
 // ----------- fin BUSCAR PRODUCTO ---------------- //
