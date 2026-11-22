@@ -551,9 +551,7 @@ body.oscuro .card.destacada {
 }
 
 
-
-/* ============= 
-TOAST 
+/* toast ya creado en tienda.js y toast.css */
 .toast-custom {
     position: fixed;
     bottom: 24px;
@@ -589,7 +587,7 @@ TOAST
     line-height: 1;
     padding: 0;
 }
-============= */
+
 
 /* modal  */
 .modal-overlay {
