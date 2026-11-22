@@ -656,3 +656,25 @@ TOAST
     cursor: pointer;
     color: #222;
 }
+
+/* las tarjetas se arman en tienda.js */
+.section-productos .productos-container .producto .producto-descripcion {
+    text-align: start;
+    padding: 10px 0;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.section-productos .productos-container .producto .producto-descripcion span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.section-productos .productos-container .producto .producto-descripcion h5 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 16px;
+}
