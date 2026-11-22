@@ -88,6 +88,8 @@ function agregarAlCarrito(producto) {
 // El método setItem() guarda un par clave-valor en localStorage o sessionStorage, o actualiza el valor si la clave ya existe.
 
     localStorage.setItem('carritoDeCompras', JSON.stringify(carrito));
+// mostrar el toast con substring para acortar el title
+    mostrarToast(`${producto.title.substring(0, 20)}... agregado al carrito`);
 
 }
 

@@ -29,3 +29,53 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+
+/* contenedor de productos en tienda.html */
+.section-productos .productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    border: 1px solid #cce7d0;
+    border-radius: 20px;
+    padding: 12px;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.producto-descripcion {
+    padding: 10px 0;
+    text-align: start;
+}
+
+.producto-descripcion span {
+    color: #606063;
+    font-size: 12px;
+}
+
+.carrito {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #088178;
+    color: #fff;
+    cursor: pointer;
+}
