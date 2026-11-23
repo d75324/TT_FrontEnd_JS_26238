@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script/script.js" defer></script>
     <script src="script/footer.js" defer></script>
+    <script src="script/hamburger.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
         </a>
         <div>
             <!-- === Lista === -->
-            <ul class="navbar">
+            <ul id="navbar" class="navbar">
                 <li>
                     <a href="">Home</a>
                 </li>
@@ -38,16 +39,21 @@
                     <a href="pages/contacto.html">Contacto</a>
                 </li>
                 <li>
-                    <a href="pages/carrito.html">Carrito</a>
+                    <a href="carrito.html">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </a>
                 </li>
+                <a href="#" id="close" class="close">
+                    <i class="far fa-times" aria-hidden="true"></i>
+                </a>
             </ul>
         </div>
         <div class="mobile">
-            <a href="pages/carrito.html"> 
+            <a href="pages/carrito.html">
                 <i class="fa fa-shopping-bag" aria-hidden="true"> </i>
             </a>
+            <i id="bar" class="fas fa-outdent"></i>
         </div>
-        <i id="bar" class="fas fa-outdent"></i>
     </header>
      
     <main>
@@ -99,23 +105,8 @@
             </fieldset>
         </section>
         <!-- =========== FIN SUSCRIPCIÓN AL NEWSLETTER =========== -->
-
-        <!-- === FORMULARIO js no funca === -->
-        <section class="mateamargo">
-            <div>
-                <form action="" id="formulario">
-                    <label for="nombre"> Nombre: </label>
-                    <input type="text" id="nombre" name="nombre">
-                    <label for="email"> Email: </label>
-                    <input type="email" id="email" name="email">
-                    <button type="submit"> Enviar </button>
-                </form>
-            </div>
-        </section>
-        <!-- ====================== FIN FORMULARIO js ====================== -->
-
     </main>
-    
+
     <!-- =========== FOOTER =========== -->
     <footer id="footer" class="section-p1"></footer>
     <!-- ========= FIN FOOTER ========= -->
