@@ -144,7 +144,7 @@ p {
         padding-left: 20px;
     }
 
-    /* Clase que vamos a usar con JS para desplegar el menú */
+    /* === Clase de JS para desplegar el menú === */
     .active {
         right: 0px;
     }
