@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
     <link rel="stylesheet" href="../styles.css">
     <script src="../script/footer.js" defer></script>
+    <script src="../script/hamburger.js" defer></script>
 </head>
 
 <body>
@@ -33,9 +34,20 @@
                     <a href="#">Acerca de</a>
                 </li>
                 <li>
-                    <a href="carrito.html">Carrito</a>
+                    <a href="carrito.html">
+                        <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                    </a>
                 </li>
+                <a href="#" id="close" class="close">
+                    <i class="far fa-times" aria-hidden="true"></i>
+                </a>
             </ul>
+        </div>
+        <div class="mobile">
+            <a href="carrito.html">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+            <i id="bar" class="fas fa-outdent"></i>
         </div>
     </header>
 
