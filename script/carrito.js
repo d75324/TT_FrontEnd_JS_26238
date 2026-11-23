@@ -1,5 +1,5 @@
 // si hay información en LocalStorage, va a cargar los productos
-document.addEventListener('DOMContentLoad', () => cargarProductosAlCarrito());
+document.addEventListener('DOMContentLoaded', cargarProductosAlCarrito);
 
 // cargar y renderizar los productos al carrito
 function cargarProductosAlCarrito() {
@@ -30,7 +30,7 @@ actualizarTotal(subtotal);
 
 // 2 Genera el HTML de una fila de la tabla
 function creaFilaProducto(producto){
-    const subtotalProducto = producto.price * producto.cantidad;
+    const subtotalProducto = (producto.price * producto.cantidad).toFixed(2);
     const titulo = producto.title.substring(0, 20) + '...';
     return `
         <tr>
@@ -53,7 +53,11 @@ function creaFilaProducto(producto){
 }
 
 // 3 Actualizar el subtotal del producto
-
 function actualizarTotal(subtotal){
-    
+    document.getElementById('subtotal-carrito').textContent = `
+        $${subtotal.toFixed(2)}
+        `;
+    document.getElementById('total-carrito').textContent = `
+        $${subtotal.toFixed(2)}
+        `;
 }
