@@ -1,36 +1,81 @@
-# TT Ecommerce – Pre-entrega Front-End JS
+# TT Ecommerce – Entrega Final Front-End JS
 
-Maqueta de la página principal de una tienda online, hecha con HTML y CSS para el curso de Front-End JS de Talento Tech.
+Tienda online hecha con HTML, CSS y JavaScript para el curso de Front-End JS de Talento Tech. Los productos se traen de [Fake Store API](https://fakestoreapi.com/) y el carrito se guarda en el navegador con `localStorage`.
 
-## Qué incluye
+> **Estado:** en desarrollo. La tienda y el carrito ya funcionan; hay partes pendientes que se detallan más abajo.
 
-### Navbar responsive
-- Header fijo arriba (`position: sticky`) con el logo y los links de navegación, alineados con Flexbox.
-- **En escritorio** los links se muestran en fila y cambian de color al pasar el mouse.
-- **En pantallas de menos de 800px** (media query) el menú pasa a ser un panel lateral vertical que queda oculto fuera de la pantalla (`right: -300px`). Aparecen el ícono del carrito y el ícono de menú (Font Awesome).
-- El panel se despliega con la clase `.active`. Está preparada para activarla con JavaScript en la próxima etapa.
+## Funcionalidades
 
-### Sección principal (hero)
-- Una imagen de fondo a todo el ancho (`background-size: cover`) con el texto de la promoción y el botón "Comprar" alineados a la derecha.
-- Se adapta con media queries a 1200px, 992px, 768px y 576px. En cada uno cambian la altura, el padding y el tamaño de letra. En celular el texto se centra y se reacomoda la posición de la imagen.
+### Tienda (`pages/tienda.html`)
+- Al cargar la página se hace un `fetch` a `https://fakestoreapi.com/products` y se dibuja una card por producto (imagen, categoría, título acortado y precio con dos decimales).
+- **Ver descripción:** abre un modal con la imagen, el título completo, la descripción y el precio del producto.
+- **Agregar:** suma el producto al carrito. Si ya estaba, aumenta la cantidad en lugar de duplicarlo (`findIndex`).
+- **Toast:** al agregar un producto aparece un aviso abajo a la derecha durante 3 segundos. Se puede cerrar con la ✕.
 
-> El resto del contenido de `index.html` (formularios, textos y banner) son pruebas de clase y no forman parte de la entrega.
+### Carrito (`pages/carrito.html`)
+- Lee el carrito desde `localStorage` (clave `carritoDeCompras`) y arma la tabla con imagen, producto, precio, cantidad y subtotal.
+- Si el carrito está vacío, muestra un mensaje con links a la tienda y al home.
+- Las cantidades se pueden modificar desde el input; el subtotal de cada fila y el total se recalculan solos. No se aceptan cantidades menores a 1.
+- El envío figura como gratis, así que el total es igual al subtotal.
+
+### Home (`index.html`)
+- Hero con imagen de fondo, texto de la promoción y botón "Comprar".
+- Catálogo de productos traído de la API con un **buscador** que filtra por título mientras se escribe.
+- Botón para cambiar entre modo claro y oscuro.
+- Formulario conectado a [Formspree](https://formspree.io/).
+
+### Contacto (`pages/contacto.html`)
+- Formulario con nombre, email y mensaje, con campos obligatorios (`required`).
+
+### Elementos compartidos
+- **Navbar responsive:** en pantallas de menos de 800px el menú se convierte en un panel lateral que se abre con el ícono de menú y se cierra con la ✕ (`script/hamburger.js`).
+- **Footer único:** se inyecta desde `script/footer.js`, así todas las páginas muestran el mismo.
+- **Responsive:** media queries a 1200px, 992px, 800px, 768px, 576px y 477px.
 
 ## Estructura
 
 ```
-├── index.html          # página principal
-├── style.css           # estilos y media queries
-├── img/                # logo e imágenes del hero
+├── index.html             # home: hero, catálogo con buscador, formulario
+├── styles.css             # estilos generales, navbar, hero, toast, media queries
+├── estilos/
+│   ├── tienda.css
+│   ├── carrito.css
+│   └── contacto.css
+├── script/
+│   ├── script.js          # catálogo y buscador del home, modo oscuro
+│   ├── tienda.js          # fetch a la API, cards, modal, agregar al carrito
+│   ├── carrito.js         # tabla del carrito, cantidades y totales
+│   ├── toast.js           # aviso temporal al agregar productos
+│   ├── hamburger.js       # abrir y cerrar el menú en mobile
+│   └── footer.js          # footer compartido
+├── img/                   # logo e imágenes
 └── pages/
-    ├── contacto.html
-    └── carrito.html
+    ├── tienda.html
+    ├── carrito.html
+    └── contacto.html
 ```
 
 ## Cómo verlo
 
-Abrí `index.html` en el navegador. Para probar el responsive, achicá la ventana o usá el modo dispositivo de las DevTools (F12).
+1. Clonar o descargar el repositorio.
+2. Abrir `index.html` en el navegador (o usar la extensión Live Server de VS Code).
+3. Se necesita conexión a internet para cargar los productos de la API, las fuentes y los íconos.
+
+Para probar el responsive, achicar la ventana o usar el modo dispositivo de las DevTools (F12).
+
+## Pendiente
+
+- [ ] Botón para eliminar productos del carrito (el botón ya está en la tabla, falta la lógica).
+- [ ] Aplicar cupón de descuento.
+- [ ] Botón "Proceder al pago".
+- [ ] Conectar el formulario de contacto (hoy no tiene `action`).
+- [ ] Página de Blog y sección "Acerca de".
+- [ ] Banner del home (marcado como "próximamente").
 
 ## Tecnologías
 
-HTML5 · CSS3 (Flexbox, media queries) · Google Fonts (Roboto) · Font Awesome
+- HTML5 y CSS3 (Flexbox, media queries)
+- JavaScript: manipulación del DOM, eventos, `fetch`, `localStorage`, métodos de arrays (`map`, `filter`, `find`, `findIndex`)
+- [Fake Store API](https://fakestoreapi.com/)
+- [Formspree](https://formspree.io/)
+- Google Fonts (Roboto, Open Sans, League Spartan) y Font Awesome
