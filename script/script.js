@@ -126,14 +126,14 @@ botonCambiarModo.addEventListener("click", () => {
 });
 
 // ----------- F O R M U L A R I O ---------------- //
-const formulario = document.getElementById("formulario");
-formulario.addEventListener("submit", (event) => {
-	event.preventDefault();
-	const nombre = document.getElementById("nombre").value;
-	const email = document.getElementById("email").value;
-	console.log("Nombre: ", nombre);
-	console.log("Email: ", email);
-})
+// const formulario = document.getElementById("formulario");
+// formulario.addEventListener("submit", (event) => {
+// 	event.preventDefault();
+// 	const nombre = document.getElementById("nombre").value;
+// 	const email = document.getElementById("email").value;
+// 	console.log("Nombre: ", nombre);
+// 	console.log("Email: ", email);
+// })
 
 // ----------- BUSCAR PRODUCTO ---------------- //
 const buscador = document.getElementById("buscador");
