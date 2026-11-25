@@ -78,6 +78,24 @@ function adjuntarEventosCarrito() {
       cambiarCantidad(id, nuevaCantidad);
     });
   });
+
+  // escucha el click en el botón ELIMINAR de cada fila
+  // uso currentTarget (el botón) y no target: si se hace click sobre el ícono <i>, target sería el ícono y no tendría data-id
+  document.querySelectorAll('.remove-btn').forEach(boton => {
+    boton.addEventListener('click', (e) => {
+      const id = Number(e.currentTarget.dataset.id);
+      eliminarProducto(id);
+    });
+  });
+}
+
+// elimina el producto completo del carrito (sin importar la cantidad) y redibuja
+// filter devuelve un array nuevo con todos los productos MENOS el que tiene ese id
+function eliminarProducto(id) {
+  const carrito = JSON.parse(localStorage.getItem('carritoDeCompras')) || [];
+  const carritoActualizado = carrito.filter(item => item.id !== id);
+  localStorage.setItem('carritoDeCompras', JSON.stringify(carritoActualizado));
+  cargarProductosAlCarrito();
 }
 
 // actualizar la cantidad en localStorage y redibuja el carrito
@@ -91,4 +109,3 @@ function cambiarCantidad(id, cantidad) {
   }
   cargarProductosAlCarrito();
 }
-
